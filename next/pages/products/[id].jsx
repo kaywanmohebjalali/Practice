@@ -9,28 +9,20 @@ const Cabin = ({ data }) => {
   //   return <h1>FallBack Page:</h1>;
   // }
 
-
   return <div>{data?.description}</div>;
 };
 
 export default Cabin;
 
 
-
-
-
-
 export async function getServerSideProps(context) {
   const id = context.params.id;
+  const { req, res, params, query } = context;
+  console.log(req);
+
 
   try {
     const data = await getCabin(id);
-
-    if (!data)
-      return {
-        // notFound: true,
-        redirect: { destination: "/products" },
-      };
 
     return {
       props: { data: data },
@@ -41,19 +33,6 @@ export async function getServerSideProps(context) {
     };
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // export async function getStaticProps(context) {
 //   const id = context.params.id;
