@@ -1,0 +1,47 @@
+
+ /* .container-grid{
+    max-width: 80%;
+    margin: 0 auto;
+    display: grid;
+    grid-auto-columns: 1fr;
+    grid-auto-rows: max-content;
+    grid-auto-flow: column; 
+    display: flex;
+    flex-wrap: wrap;
+}
+.item-grid{
+
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0%;
+    border: 1px solid blue;
+    padding: 0 0.7rem ;
+}
+.item-2{
+    flex-basis: auto;
+    width: 90%;
+}
+.item-3{
+    flex-basis: auto;
+    width: 50%;
+}
+.row div{
+    border: 1px solid red;
+}  */
+
+.scrollspy-example{
+    position: relative;
+    height: 200px;
+    /* margin-top: 0.5rem; */
+    overflow: auto;
+
+}
+
+h4, h5{
+    /* margin-top: 3rem; */
+}
+
+
+
+
+

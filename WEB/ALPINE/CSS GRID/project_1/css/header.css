@@ -1,0 +1,62 @@
+.Header{
+    grid-column: 1 / -1;
+    background-color:#000;
+    background-image: linear-gradient(to bottom,#4d4c4c4f,#000),url("../../picture/food_2.jpg") ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+    display: grid;
+    grid-template-rows:repeat(3,min-content) ;
+    justify-content: center;
+    align-content: center;
+    grid-gap: 2rem;
+    text-align: center;
+}
+.header-text-1{
+  font-size: 2.1rem;
+  color: #fff;
+}
+.header-text-2{
+    color: #fff;
+    /* margin:0.8rem 0 2rem 0; */
+    font-size: 3rem;
+}
+.header-text-2 span{
+    color: orange;
+}
+.header-btn{
+ padding: 1.5rem;
+ background-color: orange;
+ color: #fff;
+ border: none;
+ border-radius: 5px;
+ font:bold 1.4rem san;
+ transition: 0.3s; 
+ justify-self: center;
+}
+.header-btn:hover{
+    background-color: #fff;
+    color: orange;
+}
+
+
+@media screen and (max-width:600px) {
+    .Header{
+        background-position-x: 10%;
+
+    }
+    .header-text-1{
+        font-size: 1.2rem;
+
+    }
+    .header-text-2{
+        font-size: 2.2rem;
+    }
+    .header-btn{
+        padding: 1rem 0.8rem;
+
+    }
+}

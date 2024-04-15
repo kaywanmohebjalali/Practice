@@ -1,0 +1,63 @@
+
+html{
+    box-sizing: border-box;
+}
+body{
+    font-family: sans-serif;
+}
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+    font-family: sans-serif;
+}
+div.container{
+    display: grid;
+    grid-template-rows:80vh repeat(5,max-content);
+    grid-template-columns: repeat(6,1fr);
+}
+
+
+.section-title{
+    text-align: center;
+    padding: 2.5rem;
+    color: orange;
+    font: bold 2rem icon;
+}
+
+.section-title:before,
+.section-title:after{
+    display: inline-block;
+    content: '';
+    background-color: #555;
+    width: 3.5rem;
+    height: 1px;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+}
+.section-title:before{
+       right: 0.5rem;
+}
+.section-title:after{
+  left: 0.5rem;
+}
+
+
+@media screen  and (max-width:600px){
+
+    .section-title{
+        text-align: center;
+        padding: 2.5rem 1rem;
+        color: orange;
+        font: bold 1.5rem icon;
+    }
+
+    .section-title:before,
+    .section-title:after{
+    width: 2rem;
+}
+    
+}

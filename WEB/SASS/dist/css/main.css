@@ -1,0 +1,285 @@
+@font-face {
+  font-family: "Vazir";
+  src: url("../fonts/Vazir.eot");
+  /* IE9 Compat Modes */
+  src: url("../fonts/Vazir.eot?#iefix") format("embedded-opentype"), url("../fonts/Vazir.woff2") format("woff2"), url("../fonts/Vazir.woff") format("woff"), url("../fonts/Vazir.ttf") format("truetype");
+  /* Safari, Android, iOS */ }
+
+@media (max-width: 768px) {
+  #header-home {
+    height: 30rem; } }
+
+@media (max-width: 500px) {
+  #main-nav {
+    flex-direction: column;
+    align-items: center; }
+    #main-nav ul {
+      order: 2; }
+    #main-nav li {
+      padding: 1rem; }
+  #header-home {
+    height: 9rem;
+    border-bottom: 3px solid #4834d4; }
+    #header-home .header-content {
+      display: none; }
+  #home-1 .items,
+  #home-2 .items,
+  #home-3 .process {
+    grid-template-columns: 1fr; }
+  #home-1 .items div {
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 1rem; }
+    #home-1 .items div:last-child {
+      border: none;
+      padding-bottom: 0; }
+  #main-footer {
+    height: 7rem; }
+    #main-footer .footer-content {
+      flex-direction: column;
+      padding: 1rem;
+      height: 5rem; } }
+
+.container {
+  max-width: 1280px;
+  padding: 0 1.5rem;
+  margin: auto;
+  overflow: hidden; }
+
+.text-primary {
+  color: #4834d4; }
+
+.text-yellow {
+  color: yellow; }
+
+.text-center {
+  text-align: center; }
+
+.bottom-line {
+  height: 2px;
+  width: 3rem;
+  background: #4834d4;
+  display: block;
+  margin: 0 auto 1rem auto; }
+
+.btn-primary, .btn-light, .btn-dark {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  transition: all 0.5s;
+  border: none;
+  cursor: pointer; }
+
+.btn-primary {
+  color: #333;
+  background-color: #4834d4; }
+
+.btn-light {
+  color: #333;
+  background-color: #f4f4f4; }
+
+.btn-dark {
+  color: #f4f4f4;
+  background-color: #333; }
+
+a[class^="btn-"]:hover {
+  background-color: #4834d4;
+  color: white; }
+
+.py-1 {
+  padding: 1rem 0; }
+
+.py-2 {
+  padding: 2rem 0; }
+
+.py-3 {
+  padding: 3rem 0; }
+
+.py-4 {
+  padding: 4rem 0; }
+
+.my-1 {
+  margin: 1rem 0; }
+
+.my-2 {
+  margin: 2rem 0; }
+
+.my-3 {
+  margin: 3rem 0; }
+
+.my-4 {
+  margin: 4rem 0; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Vazir";
+  line-height: 1.6;
+  background: #fff; }
+
+a {
+  text-decoration: none;
+  color: #333; }
+
+ul {
+  list-style: none; }
+
+img {
+  width: 100%; }
+
+#main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1rem; }
+  #main-nav ul {
+    display: flex; }
+  #main-nav li {
+    padding: 1rem 1.5rem; }
+  #main-nav a {
+    color: #fff;
+    border-bottom: 3px transparent solid;
+    padding-bottom: 0.5rem;
+    --wekit-transition: $property $duration;
+    --ms-transition: $property $duration;
+    --o-transition: $property $duration;
+    transition: border-color 0.5s; }
+    #main-nav a:hover {
+      border-color: #ccc; }
+    #main-nav a.active {
+      border-color: #4834d4; }
+
+#header-home {
+  background: linear-gradient(rgba(20, 20, 20, 0.5), rgba(20, 20, 20, 0.5)), url("../img/development.jpg") no-repeat center center/cover;
+  height: 100vh;
+  color: #fff; }
+  #header-home .header-content {
+    text-align: center;
+    font-size: 1.2rem;
+    line-height: 1.2; }
+
+#home-1 .items {
+  margin-top: 3rem;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(4, 1fr); }
+  #home-1 .items .fas {
+    color: #4834d4;
+    padding-bottom: 0.4rem; }
+
+#home-2 .items {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); }
+  #home-2 .items li {
+    line-height: 2; }
+    #home-2 .items li.items-title {
+      font-size: 1.5rem; }
+    #home-2 .items li.items-number {
+      font-size: 2rem;
+      font-weight: bold; }
+  #home-2 .items div {
+    padding: 3rem 0; }
+    #home-2 .items div:nth-child(odd) {
+      background: #4834d4;
+      color: #fff; }
+    #home-2 .items div:nth-child(even) {
+      background: #f4f4f4; }
+
+#home-3 .process {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 1.5rem;
+  text-align: center; }
+  #home-3 .process-step {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 28px;
+    background: #4834d4;
+    color: #000;
+    border-radius: 50%;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    padding: 1rem;
+    --wekit-transition: $property $duration;
+    --ms-transition: $property $duration;
+    --o-transition: $property $duration;
+    transition: all 1s; }
+  #home-3 .process-icon {
+    border-radius: 50%;
+    background: #333;
+    color: #fff;
+    padding: 2rem;
+    width: 70px;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    position: relative;
+    --wekit-transition: $property $duration;
+    --ms-transition: $property $duration;
+    --o-transition: $property $duration;
+    transition: all 1s; }
+    #home-3 .process-icon:hover {
+      background: #4834d4;
+      width: 90px;
+      height: 90px;
+      line-height: 90px; }
+      #home-3 .process-icon:hover .process-step {
+        background: #333;
+        color: #fff; }
+
+#main-footer {
+  background: #333;
+  color: #fff;
+  height: 5rem; }
+  #main-footer .footer-content {
+    display: flex;
+    justify-content: space-between;
+    height: 5rem;
+    align-items: center; }
+    #main-footer .footer-content .social .fab {
+      margin-right: 1rem;
+      border: 2px #fff solid;
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      line-height: 20px;
+      text-align: center;
+      padding: 0.5rem; }
+      #main-footer .footer-content .social .fab:hover {
+        background: #4834d4; }
+
+@media (max-width: 768px) {
+  #header-home {
+    height: 30rem; } }
+
+@media (max-width: 500px) {
+  #main-nav {
+    flex-direction: column;
+    align-items: center; }
+    #main-nav ul {
+      order: 2; }
+    #main-nav li {
+      padding: 1rem; }
+  #header-home {
+    height: 9rem;
+    border-bottom: 3px solid #4834d4; }
+    #header-home .header-content {
+      display: none; }
+  #home-1 .items,
+  #home-2 .items,
+  #home-3 .process {
+    grid-template-columns: 1fr; }
+  #home-1 .items div {
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 1rem; }
+    #home-1 .items div:last-child {
+      border: none;
+      padding-bottom: 0; }
+  #main-footer {
+    height: 7rem; }
+    #main-footer .footer-content {
+      flex-direction: column;
+      padding: 1rem;
+      height: 5rem; } }

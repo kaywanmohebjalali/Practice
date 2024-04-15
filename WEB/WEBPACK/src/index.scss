@@ -1,0 +1,27 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+@font-face {
+    font-family: "Vazir";
+    src: url("../src/fonts/Vazir-Light-FD.eot");
+
+    src: url('../src/fonts/Vazir-Light-FD.ttf') format('ttf'),
+         url('../src/fonts/Vazir-Light-FD.woff') format('woff'),
+         url('../src/fonts/Vazir-Light-FD.woff2') format('woff2');
+}
+
+$aq:aqua;
+
+*{
+    font-family: "Vazir";
+}
+.box{
+    background-color:$aq ;
+    width: 50%;
+    height: 200px;
+    text-align: center;
+}
+
+img{
+    width: 400px;
+    height: auto;
+}

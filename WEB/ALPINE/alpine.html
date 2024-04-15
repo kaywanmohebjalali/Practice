@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- <script src="//unpkg.com/alpinejs" defer></script> -->
+    <!-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> -->
+    
+    <script src="node_modules/alpinejs/dist/cdn.min.js" defer></script>
+    
+<!--     
+       <style>
+
+           [x-cloak] {
+            display: none !important;
+            }
+
+       </style> -->
+   
+    
+    
+    <title>Alpine</title>
+</head>
+<body>
+
+    <!-- <div x-data="{message:'end video',show:true}">
+
+     
+        <span x-show="show">x-show</span>
+        <template x-if="show"><span >x-if</span></template>
+     
+        <h1 x-show="show" x-cloak >tag h1</h1>
+     
+     </div>
+      -->
+     
+
+
+
+
+
+
+
+
+
+
+
+    
+<!-- 
+    <div 
+    x-data=
+    "{
+
+        show:false,
+        books:[
+        {id:1, name:'book1', price:150_000 },
+        {id:2, name:'book2', price:80_000 },
+        ],
+
+        sum(){
+            console.log(this.books[0].price + this.books[1].price)
+        }
+
+    }"
+    >
+
+    <button @click="show=true">show products</button>
+
+    <template x-if="show">
+         
+        <template x-for="product in books">
+            <h1 x-text="sum()"></h1>
+            <div >
+                   <p x-text="product.name" style="color: red;"></p>
+                   <p x-text="product.price"></p>
+              </div>
+
+        </template>
+
+    </template>
+
+
+
+
+
+
+    </div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+    <!-- <div 
+    x-data=
+    "{
+           show:false,
+           message:'',
+           get printName(){
+            console.log('kaywan')
+           },
+
+    }"
+    >
+
+          <button @click="show=true">click</button>
+ 
+          <template x-if="show">
+              
+              <span x-text=" printName "></span>
+              
+        </template>
+
+
+
+    </div>  -->
+
+
+
+
+<!-- <form 
+x-data="
+{
+
+
+}
+    "
+    @submit.prevent="console.log(event)"
+>
+
+<input type="text">
+<button type="submit">submit</button>
+</form>
+
+   
+<p>*************************************************</p>
+
+<div 
+x-data="
+{
+
+
+}
+    "
+
+>
+
+
+<button @click="event=>{console.log('***********');console.log(event.target)}" >click</button>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div
+x-data=
+"
+{
+ query:'',
+ img:'',
+ getImg(){
+ 
+      this.img=`https://source.unsplash.com/1600x900/?${this.query}`;
+ }
+
+}
+
+"
+>
+
+<form  @submit.prevent="getImg">
+    <input type="text" x-model="query">
+    <button type="submit">submit</button>
+</form>
+
+<div x-show="img">
+
+    <img x-bind:src="img"  style="width: 100%; height: auto;">
+
+</div>
+
+</div> -->
+
+
+
+
+
+
+
+
+<!-- <div 
+
+x-data="
+{
+    result:''
+}
+
+
+"
+
+>
+
+<button @click="x=10; console.log('x = ',x); result=x">click</button>
+<h1 x-text="y = result; console.log('y = ',y)">click</h1>
+<h1 x-text="d = 40 + 20">click</h1>
+
+</div> -->
+
+
+<!-- <div x-data="{ placeholder: 'Type here...' }">
+    <input type="text" :placeholder="placeholder">
+  </div>
+
+  <div style="margin: 1rem;"></div>
+
+
+  <div x-data="{ open: false }">
+    <button x-on:click="open = ! open">Toggle Dropdown</button>
+   
+    <div :class="open ? '' : 'color'">
+      Dropdown Contents...
+    </div>
+
+    <div style="margin: 1rem;"></div>
+
+    <div :class="{ 'color':  !open }">d1</div>
+    <div class="" :class="{ 'color':  open }">d2</div>
+    <div class="" :class="open && 'color'  ">d3</div>
+    <div class="" :class="open || 'color'  ">d4</div>
+    <div :style="open && { color: 'red', display: 'flex' }">d5</div>
+
+
+  </div>
+ -->
+
+
+
+
+
+
+<div 
+x-data=
+"
+{
+    record:[],
+    result:''
+    
+}
+
+"
+
+>
+
+<!-- <input type="checkbox" value="1" x-model="record">
+<input type="checkbox" value="2" x-model="record">
+<input type="checkbox" value="3" x-model="record"> -->
+<!-- <span x-text="`record = ${record}  / record.length = ${record.length}`"></span> -->
+ 
+
+  <!-- <input type="checkbox" value="1" x-model="result">
+  <input type="checkbox" value="3" x-model="result">
+  <input type="checkbox" value="3" x-model="result"> 
+
+  <span x-text="`result = ${result}`"></span> -->
+
+
+  <!-- <input type="radio" value="1" x-model="result">
+  <input type="radio" value="2" x-model="result">
+  <input type="radio" value="3" x-model="result"> 
+
+  <span x-text="`result = ${result}`"></span> -->
+
+
+
+  <!-- <select  x-model="result" >
+    <option value="country" disabled>country</option>
+    <option value="Iran">Iran</option>
+    <option value="Germany">Germany</option>
+  </select>
+
+  <span x-text="`result = ${result}`"></span> 
+
+  
+  
+
+</div>
+ -->
+
+
+<style>
+    p{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+
+    }
+</style>
+
+
+
+
+
+<!-- <div
+
+x-data=
+"
+{
+    show:false,
+    message:'tag p',
+    setDataBox(event){
+        this.message=event.detail[1];
+        this.show=true;
+    },
+}
+
+"
+@keyup.Enter.window="show=false"
+
+@open-box.window="setDataBox($event)"
+
+>
+
+<button @click="show=true">click</button>
+<p x-show="show" x-text="message"></p>
+
+</div>
+
+<button x-data @click="$dispatch('open-box' , ['box 1','kkkk'])" > box</button>
+
+
+<div id="d">div</div> -->
+
+
+
+
+
+<!-- <div 
+x-data=
+"
+{
+  message:'start',
+
+  init() {
+    console.log('init')
+    this.message='test';
+},
+
+
+}
+
+"
+
+>
+
+  <button @click="console.log($el); console.log($el.innerHTML);">click me</button>
+  <span x-init="$el.innerHTML='span'"></span>
+  <h1 x-text="message" ></h1>
+
+</div> -->
+
+
+
+
+ 
+
+
+
+
+<!-- 
+<div
+x-data=
+"
+{
+
+init(){
+    console.log(document.querySelector('#hone'));
+    console.log($refs.five);
+},
+
+
+test(e){
+
+    console.log('event = ',e)
+}
+
+}
+"
+
+
+
+>
+
+<h1 id="hone">tag h1</h1>
+<h5 x-ref="five">tag h5</h5>
+<h2 x-ref="five">tag h5</h2>
+ <input type="checkbox" @change="test">
+
+
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div x-data="componentOne">
+
+    <button @click="toggle">toggle</button>
+  
+    <h1 x-show="open">tag h1</h1>
+
+</div>
+
+    <script>
+
+        // document.addEventListener('alpine:init', () => {
+        //     Alpine.data('dropdown', () => ({
+        //         open: false,
+     
+        //         toggle() {
+        //             this.open = ! this.open
+        //         },
+        //     }))
+        // })
+
+        function componentOne(){
+
+            return{
+                open: false,
+     
+           toggle() {
+               this.open = ! this.open
+                  },
+            }
+
+        }
+
+    </script> 
+
+
+
+
+<script type="module" src="my_alpine.js"></script>
+</body>
+</html>
