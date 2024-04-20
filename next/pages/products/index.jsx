@@ -12,7 +12,7 @@ const ProductsHome = ({ data, error }) => {
             <Link href={`/products/${cabin.id}`}>{cabin.name}</Link>
           </div>
         ))}
-      {/* <Product title={'test'}/> */}
+ 
     </>
   );
 };
@@ -21,8 +21,6 @@ export default ProductsHome;
 
 export async function getServerSideProps(context) {
   const { req, res, params, query } = context;
-
-  console.log("query  :", query);
 
   try {
     const data = await getCabins();
