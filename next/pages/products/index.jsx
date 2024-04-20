@@ -12,7 +12,7 @@ const ProductsHome = ({ data, error }) => {
             <Link href={`/products/${cabin.id}`}>{cabin.name}</Link>
           </div>
         ))}
- 
+      {/* <Product title={'test'}/> */}
     </>
   );
 };
