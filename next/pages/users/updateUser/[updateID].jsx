@@ -1,44 +1,69 @@
-import { useRouter } from 'next/router'
-import React, { useEffect, useRef, useState } from 'react'
+import { useRouter } from "next/router";
+import React, { useEffect, useState } from "react";
 
 const UpdateUser = () => {
-  const [user, setUser]=useState(null)
-  const eleRef=useRef()
- 
-    const  {query}=useRouter()
+  const [user, setUser] = useState(null);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [password, setPassword] = useState("");
 
- async function UpdateUserHandler(){
-    const name=eleRef.current.childNodes[0].value
-    const age=eleRef.current.childNodes[1].value
-    const password=eleRef.current.childNodes[2].value
-    const response = await  fetch(`/api/users/${query?.updateID}`, {
-      method: 'PUT',
+  const { query } = useRouter();
+
+  async function UpdateUserHandler(e) {
+    e.preventDefault();
+    if (name.trim().length < 2 || !age.trim() || password.trim().length < 5) {
+      return alert("data not valid");
+    }
+
+    const response = await fetch(`/api/users/${query?.updateID}`, {
+      method: "PUT",
       headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, age, password })
-  });
-  const data = await response.json()
-}
-  
+      body: JSON.stringify({ name, age, password }),
+    });
+    const data = await response.json();
+  }
 
-    useEffect(()=>{
-        async function getUserHandler() {
-            const res = await fetch(`/api/users/${query?.updateID}`);
-            const {user} = await res.json();
-            setUser(user);
-          }
-          getUserHandler()
-    },[])
+  useEffect(() => {
+    async function getUserHandler() {
+      const res = await fetch(`/api/users/${query?.updateID}`);
+      const { user } = await res.json();
+      setName(user?.name);
+      setAge(user?.age);
+      setPassword(user?.password);
+      setUser(user);
+    }
+    getUserHandler();
+  }, []);
   return (
-    <form  ref={eleRef}>
-    <input type="text" name='name' placeholder='name' required defaultValue={user?.name??''}/>
-    <input type="text" name='age' placeholder='age' required defaultValue={user?.age??''}/>
-    <input  type="text" name='password' placeholder='password'  defaultValue={user?.password??''}/>
-    <input onClick={()=>UpdateUserHandler()} value='send'/>
-</form>
-  )
-}
+    <form>
+      <input
+        onChange={(e) => setName(e.target.value)}
+        type="text"
+        name="name"
+        placeholder="name"
+        required
+        defaultValue={user?.name ?? ""}
+      />
+      <input
+        onChange={(e) => setAge(e.target.value)}
+        type="text"
+        name="age"
+        placeholder="age"
+        required
+        defaultValue={user?.age ?? ""}
+      />
+      <input
+        onChange={(e) => setPassword(e.target.value)}
+        type="text"
+        name="password"
+        placeholder="password"
+        defaultValue={user?.password ?? ""}
+      />
+      <button onClick={(e) => UpdateUserHandler(e)}>update</button>
+    </form>
+  );
+};
 
-export default UpdateUser
+export default UpdateUser;

@@ -13,6 +13,11 @@ function handler(req, res) {
       return res.json(parseData.users);
 
     case "POST":
+    const {name,age, password}=req.body
+    if(name.trim().length<2 || !String(age).trim() || password.trim().length<5){
+      return res.status(422).json({ message: "data not valid" });
+    }
+  
       const d = new Date();
       let time = d.getTime();
       // const newUSer = { id: crypto.randomUUID(), ...req.body };
@@ -40,9 +45,6 @@ function handler(req, res) {
       }
 
   
-
-      return res.json({ message: "delete user with id=1" });
-
     default:
       return res.json({ message: "users" });
   }

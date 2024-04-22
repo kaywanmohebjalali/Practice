@@ -2,7 +2,7 @@ import fs from "fs";
 import path from "path";
 
 function handler(req, res) {
-  const id = req.query.id;
+  const {id} = req.query;
   const dbPath = path.join(process.cwd(), "data", "db.json");
   const data = fs.readFileSync(dbPath);
   const parseData = JSON.parse(data);
@@ -16,14 +16,12 @@ function handler(req, res) {
     }
   } 
   
-  
   else if (req.method == "DELETE") {
-    const user = parseData.users.find((user) => user.id == id);
-    if (!user)
+    const isUser = parseData.users.some((user) => user.id == id);
+    if (!isUser)
       return res.status(404).json({ message: `user not found with id=${id}` });
     const users = parseData.users.filter((user) => user.id != id);
-    parseData.users = users;
-    const errorWriteFile = fs.writeFileSync(dbPath, JSON.stringify(parseData));
+    const errorWriteFile = fs.writeFileSync(dbPath, JSON.stringify({...parseData,users:users}));
 
     if (errorWriteFile) {
       return res
@@ -33,23 +31,26 @@ function handler(req, res) {
     return res.status(200).json({ message: `delete user with id=${id}` });
   } 
   
-  
-  
   else if (req.method == "PUT") {
-    const id = req.query.id;
-    const user = parseData.users.find((user) => user.id == id);
-    if (!user)
+    const {name,age, password}=req.body
+
+    if(name.trim().length<2 || !String(age).trim() || password.trim().length<5){
+      return res.status(422).json({ message: "data not valid" });
+    }
+    const isUser = parseData.users.some((user) => user.id == id);
+    if (!isUser)
       return res.status(404).json({ message: `user not found with id=${id}` });
-    const users = parseData.users.map((user) => {
+
+    parseData.users.some((user) => {
       if (user.id == id) {
-        return { id: user.id, ...req.body };
-      } else {
-        return user;
+        user.name =req.body.name
+        user.age =req.body.age
+        user.password =req.body.password
+        return true
       }
     });
-
-    parseData.users = users;
-    const errorWriteFile = fs.writeFileSync(dbPath, JSON.stringify(parseData));
+  
+    const errorWriteFile = fs.writeFileSync(dbPath, JSON.stringify({...parseData}));
 
     if (errorWriteFile) {
       return res

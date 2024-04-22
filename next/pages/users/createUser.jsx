@@ -1,39 +1,44 @@
-import React, { useRef } from 'react'
+import React, { useRef, useState } from 'react'
 
 const CreateUser = () => {
-const nameRef = useRef()
-const ageRef = useRef()
-const passwordRef = useRef()
+const [name, setName]=useState("")
+const [age, setAge]=useState("")
+const [password, setPassword]=useState("")
 
 
-async function createUserHandler(){
- 
-  const name=nameRef.current.value
-  const age=ageRef.current.value
-  const password=passwordRef.current.value
 
-  const response = await  fetch(`/api/users`, {
-    method: 'POST',
-    headers: {
+async function createUserHandler(e){
+  e.preventDefault()
+  console.log( Boolean(password.trim().length<8))
+  if(name.trim().length<2 || !age.trim() || password.trim().length<5){
+    return alert('data not valid')
+  }
+
+    const response = await  fetch(`/api/users`, {
+      method: 'POST',
+      headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({ name, age, password })
-});
+      },
+      body: JSON.stringify({ name, age, password })
+    });
 const data = await response.json()
-if(data){
- nameRef.current.value=''
-  ageRef.current.value=''
- passwordRef.current.value=''
+if(response.status===201){
+  setName("")
+  setAge("")
+  setPassword("")
+
 }
+
+  
 }
 
   return (
     <form >
-        <input ref={nameRef} type="text" name='name' placeholder='name' required/>
-        <input ref={ageRef} type="text" name='age' placeholder='age' required/>
-        <input ref={passwordRef} type="text" name='password' placeholder='password' required/>
-        <input onClick={()=>createUserHandler()} value='send'/>
+        <input onChange={e=>setName(e.target.value)} type="text" name='name' placeholder='name' value={name} required/>
+        <input onChange={e=>setAge(e.target.value)} type="text" name='age' placeholder='age' value={age} required/>
+        <input onChange={e=>setPassword(e.target.value)} type="text" name='password' placeholder='password' value={password} required/>
+        <button onClick={e=>createUserHandler(e)} >register</button>
     </form>
   )
 }

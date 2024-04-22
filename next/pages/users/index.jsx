@@ -35,15 +35,17 @@ function users() {
     <div>
       <hr />
       {users &&
-        users.map((user) => (
-          <Link key={user.id} href={`/users/${user.id}`} >
-            <p >name : {user.name}</p>
-            <p>age : {user.age}</p>
+        users?.map((user) => (
+          <div key={user?.id} >
+
+          <Link  href={`/users/${user.id}`} >name : {user?.name}</Link>
+            <p>age : {user?.age}</p>
             <button onClick={(e)=>deleteUserHandler(e,user.id)}>delete</button>
             <Link href={`/users/updateUser/${user.id}`}>update</Link>
             
             <hr />
-          </Link>
+          
+          </div>
         ))}
     </div>
     <Link href='/users/createUser'>create user</Link>
