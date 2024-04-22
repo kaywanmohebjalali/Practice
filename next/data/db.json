@@ -1,0 +1,16 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "name": "kaywan",
+            "age": 32,
+            "password": "km1003"
+        },
+        {
+            "id": 1713799858352,
+            "name": "arman",
+            "age": "30",
+            "password": "ar6441"
+        }
+    ]
+}
